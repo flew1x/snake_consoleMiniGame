@@ -22,7 +22,6 @@ func (g *game) GameInit(s *snake, fr *frame, f *food) {
 	for !g.isGameOver {
 		t := time.NewTimer(400 * time.Millisecond)
 		fr.DrawMap(s, f)
-		fmt.Println(f.GetFoodCoordinates())
 		fmt.Println("Score: ", s.score)
 		<-t.C
 		pkg.CallClear()
