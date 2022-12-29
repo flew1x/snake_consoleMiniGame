@@ -20,10 +20,9 @@ func CreateGame(startScore int) *game {
 func (g *game) GameInit(s *snake, fr *frame, f *food) {
 	go s.GoSnake(fr, f)
 	for !g.isGameOver {
-		t := time.NewTimer(400 * time.Millisecond)
 		fr.DrawMap(s, f)
 		fmt.Println("Score: ", s.score)
-		<-t.C
+		time.Sleep(400 * time.Millisecond)
 		pkg.CallClear()
 
 		if s.isDiy {

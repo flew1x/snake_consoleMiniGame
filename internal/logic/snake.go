@@ -161,7 +161,6 @@ func (s *snake) CheckSnakeTail() {
 // Check snake state and doing something with game states
 func (s *snake) checkSnakeState(fr *frame, f *food) {
 	for {
-		t := time.NewTimer(200 * time.Millisecond)
 
 		if s.coordinates.x == 0 || s.coordinates.x >= fr.GetSize()-1 || s.coordinates.y == 0 || s.coordinates.y >= fr.GetSize()-1 {
 			s.isDiy = true
@@ -184,7 +183,7 @@ func (s *snake) checkSnakeState(fr *frame, f *food) {
 				s.isDiy = true
 			}
 		}
-		<-t.C
+		time.Sleep(200 * time.Millisecond)
 	}
 }
 
